@@ -26,6 +26,7 @@ import {
     addPatient,
     updatePatient,
     deletePatient,
+    getPatientsTreatments,
 } from "../controllers/Admin.js";
 import { refreshToken } from "../controllers/RefreshToken.js";
 import { verifyAdmin } from "../middleware/VerifyAdmin.js";
@@ -71,5 +72,6 @@ router.get("/appointment/doctors/spec/:spec_id", getDoctorsBySpec);
 //doctor routes
 router.post("/doctors/login", DoctorLogin);
 router.delete("/doctors/logout", DoctorLogout);
+router.get("/patientsTreatments", getPatientsTreatments);
 
 export default router;

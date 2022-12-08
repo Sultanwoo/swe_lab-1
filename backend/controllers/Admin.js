@@ -1,4 +1,4 @@
-import { Doctors, Patients, Users } from "../models/UserModel.js";
+import { Doctors, Patients, Users, PatientsTreatments, } from "../models/UserModel.js";
 
 //User functions
 export const getUsers = async (req, res) => {
@@ -103,6 +103,15 @@ export const getPatients = async (req, res) => {
     try {
         const patients = await Patients.findAll();
         res.json(patients);
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const getPatientsTreatments = async (req, res) => {
+    try {
+        const patientsTreatments = await PatientsTreatments.findAll();
+        res.json(patientsTreatments);
     } catch (error) {
         console.log(error);
     }

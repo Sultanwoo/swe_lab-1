@@ -12,7 +12,7 @@ export const Users = db.define(
         },
         user_id: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
         email: {
             type: DataTypes.STRING,
@@ -145,6 +145,38 @@ export const Patients = db.define(
             type: DataTypes.STRING,
             allowNull: false,
         },
+    },
+    {
+        freezeTableName: true,
+    }
+);
+
+export const PatientsTreatments = db.define(
+    "patientsTreatments",
+    {
+        doctor: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        full_name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        iin: {
+            type: DataTypes.BIGINT,
+            validate: {
+                len: [12],
+            },
+            allowNull: false,
+        },
+        treatment_date: {
+            type: DataTypes.DATE,
+            allownull: true,
+        },
+        treatment: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        }
     },
     {
         freezeTableName: true,
